@@ -1,4 +1,3 @@
-git status//creo clase Producto
 class Producto{
     constructor(nombre, precio , stock){
         this.nombre = nombre;
@@ -30,6 +29,10 @@ class Producto{
     get_stock(){
         return this.stock;
     };
+
+    eliminarProducto(elemento){
+
+    }
 };
 
 document.getElementById("form-productos").addEventListener("submit", function(e){
@@ -71,7 +74,7 @@ function agregarProductosBase(producto){
         baseProductos.push(producto); 
         mostrarMensaje("producto ingresado correctamente","success");
         agregarProductosTabla(producto);
-        //document.getElementById("form-productos").reset();
+        document.getElementById("form-productos").reset();
     }
 }
 
@@ -93,5 +96,17 @@ function mostrarMensaje(mensaje, claseBT){
     },3000);
 }
 
+// campturo el elemento para los diferentes iconos de la culumna Acciones dentro del contenedor de la tabla id=tablaProductos
+document.getElementById("tablaProductos").addEventListener("click",function(e){
+    let elementoEliminar = e.target;
+    if(elementoEliminar.id ==="btnEliminar"){
+        // tengo que eliminar del array
+        elementoEliminar.parentElement.parentElement.remove();
+        mostrarMensaje("Producto eliminado correctamente!!,","danger");
+   }
 
-
+    let elementoCompar = e.target
+    if (elementoCompar.id==="btnComprar"){
+        alert("estamos trabajando en esta nueva funcionalidad")
+    }
+})
